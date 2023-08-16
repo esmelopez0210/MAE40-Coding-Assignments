@@ -10,7 +10,7 @@ A = [-1  1   1          0;       % -IL + IC + IRload = 0
      0   0 Rload       -1];      % IRload*Rload - Vo = 0
 b = [0; Vi; Vi; 0];
 x = A\b;
-Vo_LPF2_Rload = simplify(x);
+Vo_LPF2_Rload = simplify(x(4));
 
 % Problem 2
 omega4 = 10;
