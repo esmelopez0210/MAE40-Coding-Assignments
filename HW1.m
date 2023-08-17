@@ -53,6 +53,7 @@ omega4 = 10;
 zeta = 0.1;
 F_LPF2_Rload = RR_tf([omega4^2],[1 (2*zeta*omega4) omega4^2])
 figure(1), RR_bode(F_LPF2_Rload)
+
 %% Problem 4
 clc, clear, close all; 
 syms Vi L C s;
