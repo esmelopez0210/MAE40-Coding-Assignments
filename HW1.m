@@ -1,3 +1,6 @@
+% Following code uses scripts from T. Bewley's RR repository:
+% https://github.com/tbewley/RR.git
+
 % Problem 1
 clc, clear, close all; 
 
@@ -9,7 +12,7 @@ A = [ 1  -1   -1      0;        % IL - IC - IRload = 0
       0   0  Rload  -1];        % Rload*IRload - Vo = 0
 b = [0; Vi; 0; 0];
 x = A\b;
-Vo_LPF2_p2 = simplify(x(4));
+Vo_LPF2_p2 = simplify(x(4));    % transfer function output
 
 % Problem 2
 omega4 = 10;
@@ -43,8 +46,13 @@ A = [ 0   1    0     0   -C*s;      % IC - C*s*Vo = 0
 b = [0; 0; Vi; 0; 0];
 x = A\b;
 Vo_LPF2_p3 = simplify(x(5));
-Vo_LPF2_p3
 
+Vo_LPF2_p3                          % transfer function 
+
+omega4 = 10;
+zeta = 0.1;
+F_LPF2_Rload = RR_tf([omega4^2],[1 (2*zeta*omega4) omega4^2])
+figure(1), RR_bode(F_LPF2_Rload)
 %% Problem 4
 clc, clear, close all; 
 syms Vi L C s;
@@ -58,7 +66,9 @@ A = [ 0   1    0        0   -C*s;      % IC - C*s*Vo = 0
 b = [0; 0; Vi; 0; 0];
 x = A\b;
 Vo_LPF2_p4 = simplify(x(5));
-Vo_LPF2_p4
+
+Vo_LPF2_p4                             % transfer function output
+
 
 
 
